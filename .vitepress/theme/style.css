@@ -1,4 +1,6 @@
 :root {
+  --vp-font-family-base: 'LXGW Bright Medium', serif;
+  --vp-font-family-mono: "DM Mono", monospace;
   --vp-doc-top-height: 5rem;
 }
 
@@ -6,42 +8,7 @@
   margin-top: var(--vp-doc-top-height);
 }
 
-.main p {
-  font-size: 1.1rem;
-  line-height: 2.2rem;
-}
-
-.main h1 {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  font-weight: bolder;
-  font-size: 3.8rem;
-  line-height: 1.2em;
-}
-
 .main h2 {
-  margin-bottom: 2rem;
+  margin-top: 1rem;
   border-top: 0;
-  font-size: 2.2rem;
-  line-height: 1.2em;
-}
-
-h2 > a {
-  text-decoration: none;
-  opacity: 0.3;
-}
-
-h2 > a:hover {
-  opacity: 0.9;
-}
-
-.VPSidebarItem.level-0 > .item > .text {
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  opacity: 0.5;
-}
-
-.vp-doc :not(pre) > code {
-  text-wrap: nowrap;
 }

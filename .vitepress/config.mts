@@ -21,5 +21,20 @@ export default defineConfig({
   },
   head: [
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkaibright/dist/LXGWBright-Medium/result.css',
+      },
+    ],
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap',
+      },
+    ],
   ],
 })
