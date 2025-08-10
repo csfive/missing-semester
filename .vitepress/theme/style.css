@@ -1,6 +1,6 @@
 :root {
   --vp-font-family-base: 'LXGW Bright Medium', serif;
-  --vp-font-family-mono: "DM Mono", monospace;
+  --vp-font-family-mono: 'DM Mono', monospace;
   --vp-doc-top-height: 5rem;
 }
 

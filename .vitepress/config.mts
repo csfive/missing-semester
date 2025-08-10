@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'missing semester',
   lang: 'zh-CN',
+  base: 'missing-semester',
   themeConfig: {
     logo: '/logo.svg',
     sidebar: [
