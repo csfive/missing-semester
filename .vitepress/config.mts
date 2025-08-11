@@ -1,4 +1,13 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, type DefaultTheme } from 'vitepress'
+
+export const SIDEBAR: DefaultTheme.Sidebar = [
+  {
+    items: [
+      { text: '01. 课程概览与 shell', link: '/01/README' },
+      { text: '02. Shell 工具和脚本', link: '/02/README' },
+    ],
+  },
+]
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -9,27 +18,21 @@ export default defineConfig({
   ignoreDeadLinks: true,
   lastUpdated: true,
   markdown: {
+    math: true,
+    image: {
+      lazyLoading: true,
+    },
     container: {
       tipLabel: '提示',
       warningLabel: '警告',
       dangerLabel: '危险',
       infoLabel: '信息',
-      detailsLabel: '详细信息'
-    },
-    image: {
-      lazyLoading: true,
+      detailsLabel: '详细信息',
     },
   },
   themeConfig: {
     logo: '/logo.svg',
-    sidebar: [
-      {
-        items: [
-          { text: '01. 课程概览与 shell', link: '/01/README' },
-          { text: '02. Shell 工具和脚本', link: '/02/README' },
-        ],
-      },
-    ],
+    sidebar: SIDEBAR,
     socialLinks: [{ icon: 'github', link: 'https://github.com/csfive' }],
     editLink: {
       pattern: 'https://github.com/csfive/missing-semester/edit/main/:path',
