@@ -9,11 +9,11 @@ export const SIDEBAR: DefaultTheme.Sidebar = [
   },
 ]
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'zh-CN',
   title: 'missing semester',
-  description: 'MIT 计算机教育中缺失的一课的习题解答',
+  titleTemplate: ':title',
+  description: 'MIT 计算机教育中缺失的一课课后习题',
   cleanUrls: true,
   ignoreDeadLinks: true,
   lastUpdated: true,
