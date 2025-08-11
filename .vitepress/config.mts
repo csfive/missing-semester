@@ -8,6 +8,14 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
   lastUpdated: true,
+  markdown: {
+    container: {
+      tipLabel: 'Exercise',
+    },
+    image: {
+      lazyLoading: true,
+    },
+  },
   themeConfig: {
     logo: '/logo.svg',
     sidebar: [
