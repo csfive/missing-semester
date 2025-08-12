@@ -6,6 +6,7 @@
     "format": "prettier -w ."
   },
   "devDependencies": {
+    "@catppuccin/vitepress": "^0.1.2",
     "@mancuoj/prettier-config": "^0.5.3",
     "markdown-it-mathjax3": "^4.3.2",
     "prettier": "^3.6.2",
