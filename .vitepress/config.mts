@@ -3,6 +3,7 @@ import { defineConfig, type DefaultTheme, type HeadConfig } from 'vitepress'
 const sidebar: DefaultTheme.Sidebar = [
   {
     items: [
+      { text: '00. 课程笔记', link: '/notes' },
       { text: '01. 课程概览与 shell', link: '/01/README' },
       { text: '02. Shell 工具和脚本', link: '/02/README' },
     ],
@@ -13,7 +14,7 @@ const configs = {
   sidebar,
   lang: 'zh-CN',
   title: 'missing semester',
-  description: 'missing semester',
+  description: 'MIT 计算机教育中缺失的一课课程笔记及课后练习',
   repo: 'csfive/missing-semester',
   umamiId: 'c539d121-756d-405e-8402-e3fbb79a812f',
   chineseFont:
@@ -44,7 +45,6 @@ export default defineConfig({
   },
   head: getHead(),
 })
-
 
 function getHead() {
   const head: HeadConfig[] = [['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }]]
