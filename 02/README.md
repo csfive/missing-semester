@@ -71,37 +71,18 @@ polo() {
 ```sh
 #!/usr/bin/env bash
 
-COMMAND_SCRIPT="
-#!/usr/bin/env bash
+count=0
+echo > out.log
 
-n=\$(( RANDOM % 100 ))
-
-if [[ n -eq 42 ]]; then
-  echo \"Something went wrong\"
-  >&2 echo \"The error was using magic numbers\"
-  exit 1
-fi
-
-echo \"Everything went according to plan\"
-"
-TMP_SCRIPT="/tmp/debug.sh"
-OUTFILE_PATH="/tmp/debug.log"
-TOTAL_RUNS=0
-
-echo "$COMMAND_SCRIPT" > "$TMP_SCRIPT"
-chmod +x "$TMP_SCRIPT"
-
-while true; do
-  ((TOTAL_RUNS++))
-  
-  "$TMP_SCRIPT" > "$OUTFILE_PATH" 2>&1
+while true;do
+  ./buggy.sh > out.log 2>&1
   if [[ $? -ne 0 ]]; then
     break
   fi
+
+  ((count++))
 done
 
-echo "脚本在失败前共运行了 $TOTAL_RUNS 次"
-cat "$OUTFILE_PATH"
-
-rm -f "$TMP_SCRIPT" "$OUTFILE_PATH"
+echo "在成功运行 $count 次后失败"
+cat out.log
 ```
