@@ -19,4 +19,89 @@
 > drwx------+ 47 user group 1.5K Jan 12 18:08 ..
 > ```
 
+```sh
+ls -laht --color=auto
+```
+
 ## 练习 2
+
+> 编写两个 bash 函数 `marco` 和 `polo` 执行下面的操作。每当你执行 `marco` 时，当前的工作目录应当以某种形式保存，当执行 `polo` 时，无论现在处在什么目录下，都应当 `cd` 回到当时执行 `marco` 的目录。为了方便 debug，你可以把代码写在单独的文件 `marco.sh` 中，并通过 `source marco.sh` 命令，（重新）加载函数。
+
+```sh
+#!/usr/bin/env bash
+
+macro() {
+  export MACRO_DIR="$PWD"
+  echo "当前工作目录已保存为 MACRO_DIR: $MACRO_DIR"
+}
+
+polo() {
+  if [[ -z "$MACRO_DIR" ]]; then
+    echo "未找到保存的工作目录，请先执行 macro 命令"
+    return 1
+  fi
+
+  if cd "$MACRO_DIR"; then
+    echo "已返回到保存的工作目录: $MACRO_DIR"
+  else
+    echo "无法切换到保存的工作目录: $MACRO_DIR"
+    return 1
+  fi
+}
+```
+
+## 练习 3
+
+> 假设您有一个命令，它很少出错。因此为了在出错时能够对其进行调试，需要花费大量的时间重现错误并捕获输出。编写一段 bash 脚本，运行如下的脚本直到它出错，将它的标准输出和标准错误流记录到文件，并在最后输出所有内容。加分项：报告脚本在失败前共运行了多少次。
+> 
+> ```sh
+> #!/usr/bin/env bash
+>
+> n=$(( RANDOM % 100 ))
+>
+> if [[ n -eq 42 ]]; then
+>   echo "Something went wrong"
+>   >&2 echo "The error was using magic numbers"
+>   exit 1
+> fi
+>
+> echo "Everything went according to plan"
+> ```
+
+```sh
+#!/usr/bin/env bash
+
+COMMAND_SCRIPT="
+#!/usr/bin/env bash
+
+n=\$(( RANDOM % 100 ))
+
+if [[ n -eq 42 ]]; then
+  echo \"Something went wrong\"
+  >&2 echo \"The error was using magic numbers\"
+  exit 1
+fi
+
+echo \"Everything went according to plan\"
+"
+TMP_SCRIPT="/tmp/debug.sh"
+OUTFILE_PATH="/tmp/debug.log"
+TOTAL_RUNS=0
+
+echo "$COMMAND_SCRIPT" > "$TMP_SCRIPT"
+chmod +x "$TMP_SCRIPT"
+
+while true; do
+  ((TOTAL_RUNS++))
+  
+  "$TMP_SCRIPT" > "$OUTFILE_PATH" 2>&1
+  if [[ $? -ne 0 ]]; then
+    break
+  fi
+done
+
+echo "脚本在失败前共运行了 $TOTAL_RUNS 次"
+cat "$OUTFILE_PATH"
+
+rm -f "$TMP_SCRIPT" "$OUTFILE_PATH"
+```
