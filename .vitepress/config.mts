@@ -16,9 +16,9 @@ const configs = {
   title: 'missing semester',
   description: 'MIT 计算机教育中缺失的一课课程笔记及课后练习',
   repo: 'csfive/missing-semester',
-  umamiId: 'c539d121-756d-405e-8402-e3fbb79a812f',
+  umamiId: '49affcdb-336f-4f3b-82f8-f922507c8ae1',
   chineseFont:
-    'https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkaibright/dist/LXGWBright-Medium/result.css',
+    'https://chinese-fonts-cdn.netlify.app/packages/lxgwwenkaibright/dist/LXGWBright-Medium/result.css',
   googleFont:
     'https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap',
 }
