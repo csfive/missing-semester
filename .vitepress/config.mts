@@ -1,17 +1,6 @@
 import { defineConfig, type DefaultTheme, type HeadConfig } from 'vitepress'
 
-const sidebar: DefaultTheme.Sidebar = [
-  {
-    items: [
-      { text: '00. 课程笔记', link: '/notes' },
-      { text: '01. 课程概览与 shell', link: '/01/README' },
-      { text: '02. Shell 工具和脚本', link: '/02/README' },
-    ],
-  },
-]
-
 const configs = {
-  sidebar,
   lang: 'zh-CN',
   title: 'missing semester',
   description: 'MIT 计算机教育中缺失的一课课程笔记及课后练习',
@@ -39,7 +28,26 @@ export default defineConfig({
   },
   themeConfig: {
     logo: '/logo.svg',
-    sidebar: configs.sidebar,
+    nav: [
+      { text: '2026', link: '/2026/notes', activeMatch: '/2026/' },
+      { text: '2020', link: '/2020/notes', activeMatch: '/2020/' },
+    ],
+    sidebar: {
+      '/2026/': [
+        {
+          items: [{ text: '课程笔记', link: '/2026/notes' }],
+        },
+      ],
+      '/2020/': [
+        {
+          items: [
+            { text: '00. 课程笔记', link: '/2020/notes' },
+            { text: '01. 课程概览与 shell', link: '/2020/01/README' },
+            { text: '02. Shell 工具和脚本', link: '/2020/02/README' },
+          ],
+        },
+      ],
+    },
     socialLinks: [{ icon: 'github', link: `https://github.com/${configs.repo}` }],
     ...getLabel(),
   },
