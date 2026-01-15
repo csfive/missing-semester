@@ -26,7 +26,7 @@
   line-height: 2.2rem !important;
 }
 
-.main p+p {
+.main p + p {
   margin-top: 1rem;
 }
 
