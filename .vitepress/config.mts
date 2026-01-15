@@ -29,19 +29,19 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     nav: [
-      { text: '2026', link: '/2026/notes', activeMatch: '/2026/' },
-      { text: '2020', link: '/2020/notes', activeMatch: '/2020/' },
+      { text: '2026', link: '/2026/README', activeMatch: '/2026/' },
+      { text: '2020', link: '/2020/README', activeMatch: '/2020/' },
     ],
     sidebar: {
       '/2026/': [
         {
-          items: [{ text: '课程笔记', link: '/2026/notes' }],
+          items: [{ text: '课程笔记', link: '/2026/README' }],
         },
       ],
       '/2020/': [
         {
           items: [
-            { text: '00. 课程笔记', link: '/2020/notes' },
+            { text: '00. 课程笔记', link: '/2020/README' },
             { text: '01. 课程概览与 shell', link: '/2020/01/README' },
             { text: '02. Shell 工具和脚本', link: '/2020/02/README' },
           ],

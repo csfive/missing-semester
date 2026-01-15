@@ -45,6 +45,16 @@ ls -laht --color=auto
 >
 > 如果您使用的是 MacOS，请注意默认的 BSD `find` 与 [GNU coreutils](https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands) 中的是不一样的。你可以为 `find` 添加 `-print0` 选项，并为 `xargs` 添加 `-0` 选项。作为 Mac 用户，您需要注意 mac 系统自带的命令行工具和 GNU 中对应的工具是有区别的；如果你想使用 GNU 版本的工具，也可以使用 [brew 来安装](https://formulae.brew.sh/formula/coreutils)。
 
+```sh
+find . -type f -name "*.html" -print0 | xargs -0 zip html_files.zip
+```
+
 ## 练习 5
 
 > （进阶）编写一个命令或脚本递归的查找文件夹中最近修改的文件。更通用的做法，你可以按照最近的修改时间列出文件吗？
+
+```sh
+find . -type f -print0 | xargs -0 ls -lt | head -1
+
+find . -type f -printf "%TY-%Tm-%Td %TT %p\n" | sort -r | head -10
+```

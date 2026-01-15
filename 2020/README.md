@@ -293,3 +293,22 @@ mv *{.py,.sh} folder
 | 不想看报错   | `2> /dev/null`         | 丢弃 stderr |
 | 什么都不想看 | `> /dev/null 2>&1`     | 全部丢弃    |
 | 想清空文件   | `cat /dev/null > file` | 写入空内容  |
+
+## `xargs` 的用法
+
+很多命令不支持从管道读内容，这时候就需要 `xargs` 把管道传过来的数据转成参数“贴”到命令后面当做参数去执行。
+
+```sh
+# 删除目录下所有的 html 文件
+find . -name "*.html" -print0 | xargs -0 rm
+
+# 把找到的 .log 文件移动到 /backup 目录，-I 指定 {} 为占位符
+find . -name "*.log" | xargs -I {} mv {} /backup/
+
+# 限制每次执行的参数个数
+echo "a b c" | xargs -n 1 echo "处理:"
+# 输出：
+# 处理: a
+# 处理: b
+# 处理: c
+```
