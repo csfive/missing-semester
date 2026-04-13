@@ -9,7 +9,7 @@
     "@catppuccin/vitepress": "^0.1.2",
     "@mancuoj/prettier-config": "^0.5.4",
     "markdown-it-mathjax3": "^5.2.0",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.2",
     "vitepress": "^1.6.4"
   },
   "prettier": "@mancuoj/prettier-config"
