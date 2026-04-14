@@ -8,9 +8,15 @@
   "devDependencies": {
     "@catppuccin/vitepress": "^0.1.2",
     "@mancuoj/prettier-config": "^0.5.4",
+<<<<<<< HEAD
     "markdown-it-mathjax3": "^5.2.0",
     "prettier": "^3.8.2",
     "vitepress": "^1.6.4"
+=======
+    "markdown-it-mathjax3": "^4",
+    "prettier": "^3.8.1",
+    "vitepress": "^2.0.0-alpha.17"
+>>>>>>> 388d43f (update deps)
   },
   "prettier": "@mancuoj/prettier-config"
 }
