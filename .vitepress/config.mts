@@ -29,32 +29,32 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     nav: [
-      { text: '2026', link: '/2026/README', activeMatch: '/2026/' },
-      { text: '2020', link: '/2020/README', activeMatch: '/2020/' },
+      { text: '2020', link: '/2020/01', activeMatch: '/2020/' },
+      { text: '2026', link: '/2026/01', activeMatch: '/2026/' },
     ],
-    sidebar: {
-      '/2026/': [
-        {
-          items: [{ text: '课程笔记', link: '/2026/README' }],
-        },
-      ],
-      '/2020/': [
-        {
-          items: [
-            { text: '00. 课程笔记', link: '/2020/README' },
-            { text: '01. 课程概览与 shell', link: '/2020/01/README' },
-            { text: '02. Shell 工具和脚本', link: '/2020/02/README' },
-            { text: '03. 编辑器（Vim）', link: '/2020/03/README' },
-            { text: '04. 数据整理', link: '/2020/04/README' },
-            { text: '05. 命令行环境', link: '/2020/05/README' },
-            { text: '06. 版本控制（Git）', link: '/2020/06/README' },
-            { text: '07. 调试及性能分析', link: '/2020/07/README' },
-            { text: '08. 元编程', link: '/2020/08/README' },
-            { text: '09. 安全和密码学', link: '/2020/09/README' },
-          ],
-        },
-      ],
-    },
+    sidebar: [
+      {
+        text: '2020',
+        items: [
+          { text: '01. 课程概览与 shell', link: '/2020/01' },
+          { text: '02. Shell 工具和脚本', link: '/2020/02' },
+          { text: '03. 编辑器（Vim）', link: '/2020/03' },
+          { text: '04. 数据整理', link: '/2020/04' },
+          { text: '05. 命令行环境', link: '/2020/05' },
+          { text: '06. 版本控制（Git）', link: '/2020/06' },
+          { text: '07. 调试及性能分析', link: '/2020/07' },
+          { text: '08. 元编程', link: '/2020/08' },
+          { text: '09. 安全和密码学', link: '/2020/09' },
+        ],
+      },
+      {
+        text: '2026',
+        items: [
+          { text: '01. 课程概览 + Shell 入门', link: '/2026/01' },
+          { text: '02. 命令行环境', link: '/2026/02' },
+        ],
+      },
+    ],
     socialLinks: [{ icon: 'github', link: `https://github.com/${configs.repo}` }],
     ...getLabel(),
   },
