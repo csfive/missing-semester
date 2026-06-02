@@ -5,7 +5,7 @@ const configs = {
   title: 'missing semester',
   description: 'MIT 计算机教育中缺失的一课课程笔记及课后练习',
   repo: 'csfive/missing-semester',
-  umamiId: '49affcdb-336f-4f3b-82f8-f922507c8ae1',
+  umamiId: '',
   chineseFont:
     'https://chinese-fonts-cdn.netlify.app/packages/lxgwwenkaibright/dist/LXGWBright-Medium/result.css',
   googleFont:
@@ -36,7 +36,7 @@ export default defineConfig({
       {
         text: '2020',
         items: [
-          { text: '01. 课程概览与 shell', link: '/2020/01' },
+          { text: '01. 课程概览与 Shell', link: '/2020/01' },
           { text: '02. Shell 工具和脚本', link: '/2020/02' },
           { text: '03. 编辑器（Vim）', link: '/2020/03' },
           { text: '04. 数据整理', link: '/2020/04' },
