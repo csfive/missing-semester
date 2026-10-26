@@ -7,9 +7,11 @@
 
 </div>
 
-MIT Missing Semester 补的是 CS 课程从不教、却每天都要用的工具：Shell、Git、调试、打包发布、代码质量，一共九讲。2026 版不单开 AI 课，而是把 AI 工具放进每一讲。
+大学计算机系会开操作系统、机器学习这样的硬核课，却很少专门教怎么把手头的开发工具用顺手，往往只能靠自己摸索——这门课补上的正是这“缺失的一课”。
 
-这是 [@mancuoj](https://github.com/mancuoj) 自学的练习仓库：每讲一个目录，放课后 Exercises 的解答。
+2026 版共九讲，涵盖 Shell 与命令行环境、编辑器与开发工具、调试与性能分析、Git 版本控制、打包发布、Agentic Coding、工程协作与代码质量，同时把 AI 工具融入到了各个主题的日常工作流里。
+
+仓库里是 [@mancuoj](https://github.com/mancuoj) 自学时写的课后练习答案，每讲一个目录。
 
 ## 相关链接
 
@@ -25,7 +27,7 @@ MIT Missing Semester 补的是 CS 课程从不教、却每天都要用的工具�
 
 | 讲  | 主题                                                                          | 练习                                                                           | 代码                                                            | 笔记                                     | 状态 |
 | --- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------- | ---------------------------------------- | ---- |
-| 00  | [课程概览与 Shell](https://missing.csail.mit.edu/2026/course-shell/)          | [说明](https://missing.csail.mit.edu/2026/course-shell/#exercises)             | [`00-course-shell/`](./00-course-shell)                         | [笔记](https://csfive.netlify.app/ms/00) | ⬜   |
+| 00  | [课程概览与 Shell](https://missing.csail.mit.edu/2026/course-shell/)          | [说明](https://missing.csail.mit.edu/2026/course-shell/#exercises)             | [`00-course-shell/`](./00-course-shell)                         | [笔记](https://csfive.netlify.app/ms/00) | 🚧   |
 | 01  | [命令行环境](https://missing.csail.mit.edu/2026/command-line-environment/)    | [说明](https://missing.csail.mit.edu/2026/command-line-environment/#exercises) | [`01-command-line-environment/`](./01-command-line-environment) | [笔记](https://csfive.netlify.app/ms/01) | ⬜   |
 | 02  | [开发环境与工具](https://missing.csail.mit.edu/2026/development-environment/) | [说明](https://missing.csail.mit.edu/2026/development-environment/#exercises)  | [`02-development-environment/`](./02-development-environment)   | [笔记](https://csfive.netlify.app/ms/02) | ⬜   |
 | 03  | [调试与性能分析](https://missing.csail.mit.edu/2026/debugging-profiling/)     | [说明](https://missing.csail.mit.edu/2026/debugging-profiling/#exercises)      | [`03-debugging-profiling/`](./03-debugging-profiling)           | [笔记](https://csfive.netlify.app/ms/03) | ⬜   |
@@ -39,7 +41,7 @@ MIT Missing Semester 补的是 CS 课程从不教、却每天都要用的工具�
 
 ## 致谢与许可
 
-课程由 [Anish Athalye](https://anish.io/)、[Jon Gjengset](https://thesquareplanet.com/) 和 [Jose Gomez](https://josejg.com/) 讲授，课程材料（讲义、视频）版权归 MIT 所有，遵循 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)。本仓库中的是我自己做练习的答案，仅供学习参考。
+课程由 [Anish Athalye](https://anish.io/)、[Jon Gjengset](https://thesquareplanet.com/) 和 [Jose Gomez](https://josejg.com/) 讲授，课程材料（讲义、视频）版权归 MIT 所有，遵循 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)。本仓库为个人学习记录，仅供参考。
 
 <!-- Badges -->
 
