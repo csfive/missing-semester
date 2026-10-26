@@ -1,9 +1,7 @@
 # 课程概览与 Shell
 
-- [Exercises](https://missing.csail.mit.edu/2026/course-shell/#exercises) · [中文讲义](https://missing-semester-cn.github.io/2026/course-shell/)
+- [Exercises](https://missing.csail.mit.edu/2026/course-shell/#exercises)
 - 环境：Linux / zsh 5.5.1
-
-> 题目按英文原版重译，术语保留英文原文。
 
 ## 1. 确认 Shell
 
@@ -120,7 +118,7 @@ cp notes.txt "notes_$(date +%Y-%m-%d).txt"
 > [!IMPORTANT]
 > **题目**：修改讲义中那个反复运行测试、直到某次失败的脚本（flaky test 脚本）：不要在脚本里写死 `cargo test my_test`，而是从命令行参数接收要运行的测试命令。（提示：`$1` 或 `$@`）参见 [Special Parameters](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html)。
 
-```bash
+```sh
 #!/bin/bash
 set -euo pipefail
 
@@ -152,49 +150,31 @@ echo "Full log: $LOGFILE"
 > [!IMPORTANT]
 > **题目**：用管道找出你的 home 目录中出现次数最多的 5 种文件扩展名（例如 `.txt`、`.js`）。（提示：组合使用 `find`、`grep` / `sed` / `awk`、`sort`、`uniq -c` 和 `head`。）
 
-```bash
+```sh
 find "$HOME" -type f -not -name '.*' -printf '%f\n' 2>/dev/null |
   awk -F. 'NF > 1 && $NF != "" {print $NF}' |
   sort | uniq -c | sort -rn | head -5
 ```
-
-`sort` 必须放在 `uniq -c` 前面，因为 `uniq` 只统计相邻的重复行。
 
 ## 14. `find` + `xargs`
 
 > [!IMPORTANT]
 > **题目**：`xargs` 会把标准输入（stdin）的每一行转换成命令的参数。请不要用 `find -exec`，而是把 `find` 和 `xargs` 组合起来：找出某个目录下所有 `.sh` 文件，并用 `wc -l` 统计每个文件的行数。加分项：让命令能正确处理文件名中带空格的情况。（提示：`-print0` 和 `-0`）参见 `man xargs`。
 
-```bash
+```sh
 find . -type f -name '*.sh' -print0 | xargs -0 wc -l
 ```
-
-`-print0` 让 `find` 用 NUL 分隔文件名，`-0` 让 `xargs` 按 NUL 读取，这样文件名里有空格或换行也不会被拆错。
 
 ## 15. 统计课程网站讲数
 
 > [!IMPORTANT]
 > **题目**：用 `curl` 抓取[课程网站](https://missing.csail.mit.edu/)的 HTML，通过管道交给 `grep`，统计页面上列出了多少讲课程。（提示：找一个每讲恰好出现一次的模式；用 `curl -s` 关闭进度输出。）
 
-```bash
+```sh
 curl -s https://missing.csail.mit.edu/ |
   grep -A2 '<li>' |
   grep -c '<strong>[0-9]'
 ```
-
-输出 `19`。
-
-首页每个课程条目都是 `<li><strong>日期</strong>: <a href="...">课程名</a>`。`grep -A2 '<li>'` 把 `<li>` 后面的两行一起取出来，再数带日期的 `<strong>`，一条课程算一次。
-
-这 19 条包括 9 条 2026 课程和 10 条往年专题。只数 2026 的课程：
-
-```bash
-curl -s https://missing.csail.mit.edu/ |
-  grep -A3 '<li>' |
-  grep -c 'href="/2026/'
-```
-
-输出 `9`。
 
 ## 16. `jq` 筛选 JSON
 
