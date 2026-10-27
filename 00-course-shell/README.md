@@ -181,12 +181,30 @@ curl -s https://missing.csail.mit.edu/ |
 > [!IMPORTANT]
 > **题目**：`jq` 是处理 JSON 数据的强大工具。用 `curl` 获取示例数据 <https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json>，再用 `jq` 只提取 `version` 大于 6 的人的姓名。（提示：先把数据管道给 `jq .` 看结构；再试 `jq '.[] | select(...) | .name'`。）
 
+```sh
+curl -s https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json |
+  jq -r '.[] | select(.version > 6) | .name'
+```
+
 ## 17. `awk` 过滤与换列
 
 > [!IMPORTANT]
 > **题目**：`awk` 可以按列的值过滤行，并改写输出。例如，`awk '$3 ~ /pattern/ {$4=""; print}'` 只输出第三列匹配 `pattern` 的行，同时省略第四列。请写一条 `awk` 命令：只输出第二列大于 100 的行，并把第一列和第三列交换。可以用下面的命令测试：`printf 'a 50 x\nb 150 y\nc 200 z\n'`
 
+```sh
+printf 'a 50 x\nb 150 y\nc 200 z\n' |
+  awk '$2 > 100 {print $3, $2, $1}'
+```
+
 ## 18. 拆解 SSH 日志管道
 
 > [!IMPORTANT]
 > **题目**：拆解讲义中的 [SSH 日志处理管道](https://missing.csail.mit.edu/2026/course-shell/#the-shell-language-bash)：每一步分别做了什么？然后仿照它写一条管道，从 `~/.bash_history`（或 `~/.zsh_history`）中找出你最常使用的 Shell 命令。
+
+```bash
+sed -E 's/^: [0-9]+:[0-9]+;//' ~/.zsh_history |
+  awk '{print $1}' |
+  sort | uniq -c | sort -rn | head -10
+```
+
+> 第一问：[笔记 · 课堂案例](https://csfive.netlify.app/ms/00#课堂案例)
